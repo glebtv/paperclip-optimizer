@@ -4,7 +4,7 @@ require "image_optim"
 module Paperclip
   class PaperclipOptimizer < Processor
     def make
-      settings = (@options[:paperclip_optimizer] || {}).reverse_merge(::PaperclipOptimizer::DEFAULT_SETTINGS)
+      settings = (@options[:paperclip_optimizer] || Rails.application.config.assets.image_optim).reverse_merge(::PaperclipOptimizer::DEFAULT_SETTINGS)
 
       src_path = File.expand_path(@file.path)
 
